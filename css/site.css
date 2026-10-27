@@ -65,6 +65,7 @@ a.bb-btn { box-sizing: border-box; }
 
 /* Header (web.md Layout) ---------------------------------------------- */
 .site-header { position: relative; background: var(--surface); border-bottom: var(--border-hairline) solid var(--line); }
+.header-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--target-gap); padding-block: var(--space-3); }
 
 /* Footer (web.md Layout: disclaimer, GitHub, license, contact) --------- */
 .site-footer { background: var(--surface); border-top: var(--border-hairline) solid var(--line); padding-block: var(--space-8) var(--space-6); }
@@ -72,6 +73,8 @@ a.bb-btn { box-sizing: border-box; }
 .footer-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--target-gap) var(--space-8); }
 /* footer links drop the nav's side padding so the row (ending with Display settings) fits one line on a
    375px phone; target-gap still separates neighbours and each link stays at least target wide and tall */
+.nav-link { display: flex; align-items: center; min-height: var(--target); padding-inline: var(--space-3); color: var(--ink); text-decoration: none; border-radius: var(--radius-md); }
+.nav-link:hover { color: var(--brand); }
 .footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--target-gap); }
 .footer-links .nav-link { padding-inline: 0; min-width: var(--target); }
 /* a display rule (e.g. bb-btn's) would otherwise beat the [hidden] attribute */
