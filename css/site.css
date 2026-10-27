@@ -110,6 +110,8 @@ a.bb-btn { box-sizing: border-box; }
 }
 @media (forced-colors: active) {
   .site-header, .site-footer, .settings-dialog { border-color: CanvasText; }
+  /* the hero rule above beats bundle.css's forced-colors ButtonText border; restore it */
+  .hero .bb-btn--primary { border-color: ButtonText; }
 }
 
 /* Home sections (web.md Home page) -------------------------------------- */
