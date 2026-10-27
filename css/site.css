@@ -1,0 +1,121 @@
+/* BuzzahBuddy.com layout. Every value is a design-system token (css/tokens.css); components come from
+   css/bundle.css. Breakpoints are web.md's: 600px (gutters, hero type) and 900px (hero mark, card grid). */
+
+html { scroll-behavior: smooth; }
+h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
+img { max-width: 100%; height: auto; }
+/* web.md Technical: color-scheme light dark; an overridden theme sets its own so scrollbars and the dialog match */
+[data-theme^="light"] { color-scheme: light; }
+[data-theme^="dark"] { color-scheme: dark; }
+
+/* Links: underlined, brand-coloured; colour is never the only cue (README Color: link) */
+a { color: var(--link); text-decoration: underline; text-underline-offset: var(--space-1); }
+a:not(.bb-btn):focus-visible, summary:not(.bb-btn):focus-visible {
+  outline: var(--focus-width) solid transparent; outline-offset: var(--focus-offset);
+  box-shadow: var(--focus-ring); border-radius: var(--radius-xs);
+}
+/* bundle.css styles <button>s, which are border-box by default; links styled as buttons must match */
+a.bb-btn { box-sizing: border-box; }
+
+/* Layout --------------------------------------------------------------- */
+.container { max-width: var(--content-max); margin-inline: auto; padding-inline: var(--space-4); }
+.section { padding-block: var(--space-16); }
+.section--sunken { background: var(--surface-sunken); }
+.section__title { margin-bottom: var(--space-8); }
+.prose { max-width: var(--prose-max); }
+.stack > * + * { margin-top: var(--space-4); }
+.list-reset { list-style: none; padding: 0; margin: 0; }
+.grid-3 { display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); }
+.button-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--target-gap); }
+/* phones: button rows stack one per line, centred */
+@media (max-width: 599.98px) {
+  .button-row { flex-direction: column; align-items: center; }
+}
+.text-muted { color: var(--ink-muted); }
+.icon-brand { color: var(--brand); }
+
+@media (min-width: 600px) {
+  .container { padding-inline: var(--space-6); }
+  .section { padding-block: var(--space-20); }
+}
+@media (min-width: 900px) {
+  .section { padding-block: var(--space-24); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Hero on abyss (web.md Home page 1) ----------------------------------- */
+.hero { background: var(--abyss); color: var(--on-abyss); padding-block: var(--space-16); }
+.hero__inner { display: grid; gap: var(--space-8); align-items: center; }
+/* the mark only shows beside the text; when it would drop under the buttons it's hidden instead */
+.hero__mark { display: none; width: calc(var(--space-20) * 2.5); height: auto; }
+/* Button outline rule: in light themes the brand fill nearly matches abyss (2.5:1, 1.56:1 in light-hc),
+   so it gets an outline in its label colour (components/Button/README.md) */
+.hero .bb-btn--primary { border-color: var(--on-brand); }
+@media (min-width: 600px) {
+  .hero { padding-block: var(--space-24); }
+}
+@media (min-width: 900px) {
+  .hero__inner { grid-template-columns: minmax(0, 1fr) auto; }
+  .hero__mark { display: block; }
+}
+
+/* Lockup: mark + BuzzahBuddy in Lexend 600, gap space-3 (README Logo) --- */
+.lockup { display: inline-flex; align-items: center; gap: var(--space-3); min-height: var(--target); color: var(--ink); text-decoration: none; }
+.lockup img { height: var(--space-10); width: auto; }
+
+/* Header (web.md Layout) ---------------------------------------------- */
+.site-header { position: relative; background: var(--surface); border-bottom: var(--border-hairline) solid var(--line); }
+
+/* Footer (web.md Layout: disclaimer, GitHub, license, contact) --------- */
+.site-footer { background: var(--surface); border-top: var(--border-hairline) solid var(--line); padding-block: var(--space-8) var(--space-6); }
+.footer-grid { display: grid; gap: var(--space-4); }
+.footer-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--target-gap) var(--space-8); }
+/* footer links drop the nav's side padding so the row (ending with Display settings) fits one line on a
+   375px phone; target-gap still separates neighbours and each link stays at least target wide and tall */
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--target-gap); }
+.footer-links .nav-link { padding-inline: 0; min-width: var(--target); }
+/* a display rule (e.g. bb-btn's) would otherwise beat the [hidden] attribute */
+.js-only[hidden] { display: none; }
+
+/* Compact Button: smaller to the eye, same 48px target. accessibility.md Motor: "Extend hit areas past
+   the visual edge when the visual must be smaller." Text size comes from the parent (.body-s). */
+.btn-compact {
+  position: relative; min-height: calc(var(--target) - var(--space-3)); padding-inline: var(--space-3);
+  gap: var(--space-1); font-size: inherit; line-height: inherit;
+}
+.btn-compact::after { content: ""; position: absolute; inset: calc((100% - var(--target)) / 2) 0; }
+
+/* Display settings: a sheet over scrim (README Color: surface-overlay, shadow-3; Space: radius-xl, space-8) */
+.settings-dialog {
+  /* small screens: tighter margins and padding so the Appearance control (~247px wide) fits at 320px */
+  width: min(calc(100% - 2 * var(--space-3)), calc(var(--prose-max) * 2 / 3)); max-width: none;
+  max-height: calc(100% - 2 * var(--space-3)); padding: var(--space-4); box-sizing: border-box;
+  border: var(--border-hairline) solid transparent; border-radius: var(--radius-xl);
+  background: var(--surface-overlay); color: var(--ink); box-shadow: var(--shadow-3);
+}
+.settings-dialog[open] { display: grid; gap: var(--space-6); }
+.settings-dialog::backdrop { background: var(--scrim); }
+[data-theme$="-hc"] .settings-dialog { border-color: var(--line); } /* HC themes drop shadows (README Space) */
+.theme-controls { display: grid; gap: var(--space-4); }
+@media (min-width: 600px) {
+  .settings-dialog { padding: var(--space-8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+@media (forced-colors: active) {
+  .site-header, .site-footer, .settings-dialog { border-color: CanvasText; }
+}
+
+/* Home sections (web.md Home page) -------------------------------------- */
+.section-block { margin-top: var(--space-8); }
+/* the flex gap is the card's only vertical spacing, so the head drops bundle.css's margin (else 24px, not 12px) */
+.bb-card { display: flex; flex-direction: column; gap: var(--space-3); }
+/* rows stack at narrow widths and 200% zoom: the nowrap badge drops below the title (README Type: layouts reflow) */
+.bb-card__head { flex-wrap: wrap; margin-bottom: 0; }
+/* icon centred on the title's first line, even when the title wraps (space-2 = icon-to-label gap at title size);
+   the svg box is one line tall and its viewBox keeps the 24px glyph centred in it */
+.title-with-icon { display: flex; align-items: flex-start; gap: var(--space-2); }
+.title-with-icon > svg { height: 1lh; }

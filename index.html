@@ -1,222 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description"
-		content="BuzzahBuddy - Your companion app for BlueBuzzah tactile gloves. Supporting Parkinson's therapy with wireless control and session tracking.">
-	<meta name="theme-color" content="#0a0a0a">
-	<title>BuzzahBuddy - Coming Soon</title>
-
-	<link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
-	<meta name="apple-mobile-web-app-title" content="BuzzahBuddy" />
-	<link rel="manifest" href="/site.webmanifest" />
-
-	<!-- Tailwind CSS -->
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						background: '#0a0a0a',
-						foreground: '#fafafa',
-						primary: '#35B6F2',
-						'primary-foreground': '#0a0a0a',
-						secondary: '#05212D',
-						'secondary-light': '#0d3a4d',
-						muted: '#a3a3a3',
-						border: 'hsl(199, 74%, 15%)',
-					},
-					fontFamily: {
-						sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-					},
-					animation: {
-						'fade-in': 'fadeIn 0.6s ease-out forwards',
-						'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-						'fade-in-down': 'fadeInDown 0.4s ease-out forwards',
-					},
-				},
-			},
-		}
-	</script>
-
-	<style>
-		/* Legacy CSS variables: these predate the BlueBuzzah design system, which replaces them */
-		:root {
-			--background: 0 0% 4%;
-			--foreground: 0 0% 98%;
-			--card: 199 74% 10%;
-			--card-foreground: 0 0% 98%;
-			--primary: 198 86% 58%;
-			--primary-foreground: 0 0% 4%;
-			--secondary: 199 74% 10%;
-			--secondary-foreground: 0 0% 98%;
-			--muted: 199 74% 15%;
-			--muted-foreground: 0 0% 64%;
-			--border: 199 74% 15%;
-			--ring: 198 86% 58%;
-			--radius: 0.5rem;
-		}
-
-		/* Animations */
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-			}
-
-			to {
-				opacity: 1;
-			}
-		}
-
-		@keyframes fadeInUp {
-			from {
-				opacity: 0;
-				transform: translateY(20px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		@keyframes fadeInDown {
-			from {
-				opacity: 0;
-				transform: translateY(-10px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		/* Respect reduced motion */
-		@media (prefers-reduced-motion: reduce) {
-
-			*,
-			*::before,
-			*::after {
-				animation-duration: 0.01ms !important;
-				animation-iteration-count: 1 !important;
-				transition-duration: 0.01ms !important;
-			}
-		}
-
-		/* Custom scrollbar */
-		::-webkit-scrollbar {
-			width: 8px;
-			height: 8px;
-		}
-
-		::-webkit-scrollbar-track {
-			background: #0a0a0a;
-		}
-
-		::-webkit-scrollbar-thumb {
-			background: hsl(199, 74%, 15%);
-			border-radius: 4px;
-		}
-
-		::-webkit-scrollbar-thumb:hover {
-			background: #35B6F2;
-		}
-
-		/* Card gradient background */
-		.card-gradient {
-			background: linear-gradient(135deg, #05212D 0%, hsl(199, 74%, 12%) 100%);
-		}
-
-		/* Blue glow effects */
-		.glow-blue {
-			box-shadow: 0 0 15px rgba(53, 182, 242, 0.2);
-		}
-
-		.glow-blue-hover:hover {
-			box-shadow: 0 10px 30px -5px rgba(53, 182, 242, 0.25);
-		}
-
-		/* Hero background effect */
-		.hero-bg {
-			background:
-				radial-gradient(ellipse 80% 50% at 50% -20%, rgba(53, 182, 242, 0.15), transparent),
-				radial-gradient(ellipse 60% 40% at 80% 60%, rgba(5, 33, 45, 0.8), transparent),
-				#0a0a0a;
-		}
-
-		/* Stagger animations */
-		.stagger-1 {
-			animation-delay: 0.1s;
-		}
-
-		.stagger-2 {
-			animation-delay: 0.2s;
-		}
-
-		.stagger-3 {
-			animation-delay: 0.3s;
-		}
-
-		.stagger-4 {
-			animation-delay: 0.4s;
-		}
-
-		/* Focus states */
-		a:focus-visible,
-		button:focus-visible {
-			outline: 2px solid #35B6F2;
-			outline-offset: 2px;
-		}
-
-		/* Smooth link transitions */
-		a,
-		button {
-			transition: all 0.2s ease-in-out;
-		}
-
-		/* GitHub Corner */
-		.github-corner:hover .octo-arm {
-			animation: octocat-wave 560ms ease-in-out;
-		}
-
-		@keyframes octocat-wave {
-
-			0%,
-			100% {
-				transform: rotate(0);
-			}
-
-			20%,
-			60% {
-				transform: rotate(-25deg);
-			}
-
-			40%,
-			80% {
-				transform: rotate(10deg);
-			}
-		}
-
-		@media (max-width: 500px) {
-			.github-corner:hover .octo-arm {
-				animation: none;
-			}
-
-			.github-corner .octo-arm {
-				animation: octocat-wave 560ms ease-in-out;
-			}
-		}
-	</style>
+	<meta name="description" content="BuzzahBuddy is the companion app for BlueBuzzah vibrotactile therapy gloves, in development for iPhone and Android.">
+	<meta name="color-scheme" content="light dark">
+	<title>BuzzahBuddy - The BlueBuzzah companion app</title>
+	<script src="js/theme.js"></script>
+	<link rel="preload" href="css/fonts/lexend-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="css/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="css/tokens.css">
+	<link rel="stylesheet" href="css/bundle.css">
+	<link rel="stylesheet" href="css/site.css">
+	<link rel="icon" href="favicon.ico" sizes="48x48">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+	<link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+	<link rel="manifest" href="site.webmanifest">
+	<meta name="apple-mobile-web-app-title" content="BuzzahBuddy">
+	<meta name="theme-color" content="#080c1b">
+	<script src="js/site.js" defer></script>
 </head>
 
-<body class="bg-background text-foreground font-sans antialiased">
+<body>
 
 	<!-- GitHub Corner -->
 	<a href="https://github.com/rbonestell/BuzzahBuddy" class="github-corner fixed top-0 right-0 z-50"
