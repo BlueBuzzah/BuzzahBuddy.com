@@ -35,75 +35,48 @@
 	</header>
 
 	<main>
-		<!-- Hero Section -->
-		<section class="hero-bg min-h-screen flex items-center justify-center">
-			<div class="max-w-4xl mx-auto px-6 py-20">
-				<!-- Card -->
-				<div class="card-gradient rounded-2xl border border-border p-8 md:p-12 glow-blue text-center">
-
-					<!-- Coming Soon Badge -->
-					<div class="opacity-0 animate-fade-in-up stagger-2 mb-6">
-						<span
-							class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-medium border border-primary/30">
-							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-							</svg>
-							Coming Soon
-						</span>
+		<section class="hero">
+			<div class="container hero__inner">
+				<div class="stack hero__text">
+					<!-- mirrors bundle.js StatusBadge tone="brand" icon="clock" (DS import 1793120889-b415) -->
+					<p><span class="bb-badge bb-badge--brand"><svg class="bb-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="assets/icons/clock.svg#icon"/></svg><span>In development</span></span></p>
+					<h1 class="display-xl">The companion app for BlueBuzzah gloves</h1>
+					<p class="body-l prose">BuzzahBuddy will let you start and pause sessions, adjust your gloves and see how you've used them, all from your phone. It's made for hands with tremor: big buttons, no swipes and no time limits. We're building it in the open.</p>
+					<div class="button-row">
+						<a class="bb-btn bb-btn--primary" href="https://bluebuzzah.com"><span class="bb-btn__label">Visit BlueBuzzah.com</span><svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="assets/icons/external-link.svg#icon"/></svg></a>
 					</div>
+				</div>
+				<img class="hero__mark" src="assets/bluebuzzah-mark-512.png" alt="" width="200" height="193">
+			</div>
+		</section>
 
-					<!-- Description -->
-					<p
-						class="opacity-0 animate-fade-in-up stagger-3 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto mb-8">
-						BuzzahBuddy empowers Parkinson's patients with wireless control of BlueBuzzah tactile gloves.
-						Control your devices, change vibration patterns, and take control of your treatment, all
-						from an intuitive, tremor-friendly interface designed to improve your quality of life.
-					</p>
-
-					<!-- Features Preview -->
-					<div class="opacity-0 animate-fade-in-up stagger-4 grid sm:grid-cols-3 gap-4 mb-8">
-						<div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50 border border-border">
-							<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-								<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-										d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-								</svg>
-							</div>
-							<div class="text-sm font-medium text-foreground">iOS & Android</div>
-							<div class="text-xs text-muted">Cross-platform</div>
-						</div>
-						<div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50 border border-border">
-							<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-								<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-										d="M13 10V3L4 14h7v7l9-11h-7z" />
-								</svg>
-							</div>
-							<div class="text-sm font-medium text-foreground">Bluetooth LE</div>
-							<div class="text-xs text-muted">Wireless control</div>
-						</div>
-						<div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50 border border-border">
-							<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-								<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-										d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-								</svg>
-							</div>
-							<div class="text-sm font-medium text-foreground">Session Tracking</div>
-							<div class="text-xs text-muted">Progress insights</div>
-						</div>
+		<section class="section">
+			<div class="container">
+				<h2 class="display-l section__title">What it will do</h2>
+				<ul class="list-reset grid-3">
+					<!-- mirrors bundle.js Card as="li" padding="lg" (DS import 1793120889-b415) -->
+					<li class="bb-card bb-card--lg" aria-labelledby="card-ios">
+						<header class="bb-card__head"><h3 class="bb-card__title title-with-icon" id="card-ios"><svg class="bb-icon icon-brand" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="assets/icons/smartphone.svg#icon"/></svg>iPhone and Android</h3></header>
+						<p>One app for both kinds of phone. It's open source, like the rest of BlueBuzzah.</p>
+					</li>
+					<!-- mirrors bundle.js Card as="li" padding="lg" (DS import 1793120889-b415) -->
+					<li class="bb-card bb-card--lg" aria-labelledby="card-wireless">
+						<header class="bb-card__head"><h3 class="bb-card__title title-with-icon" id="card-wireless"><svg class="bb-icon icon-brand" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="assets/icons/bluetooth.svg#icon"/></svg>Wireless control</h3></header>
+						<p>Connects to your gloves over Bluetooth. Start, pause and stop sessions and change settings without a cable.</p>
+					</li>
+					<!-- mirrors bundle.js Card as="li" padding="lg" (DS import 1793120889-b415) -->
+					<li class="bb-card bb-card--lg" aria-labelledby="card-history">
+						<header class="bb-card__head"><h3 class="bb-card__title title-with-icon" id="card-history"><svg class="bb-icon icon-brand" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="assets/icons/calendar.svg#icon"/></svg>Session history</h3></header>
+						<p>See when you used your gloves and for how long.</p>
+					</li>
+				</ul>
+				<!-- mirrors bundle.js Banner tone="warning" (DS import 1793120889-b415) -->
+				<div class="bb-banner bb-banner--warning section-block">
+					<svg class="bb-icon bb-banner__icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="assets/icons/triangle-alert.svg#icon"/></svg>
+					<div class="bb-banner__body">
+						<p class="bb-banner__title">Important</p>
+						<div class="bb-banner__text"><p>People with implanted electrodes from deep brain stimulation (DBS), heart pacemakers, or other internal electronic devices should take special precautions around all electronic devices, including BlueBuzzah. Consult your physician before use.</p></div>
 					</div>
-
-					<!-- BlueBuzzah Link -->
-					<a href="https://bluebuzzah.com"
-						class="opacity-0 animate-fade-in-up stagger-4 inline-flex items-center gap-2 text-primary hover:text-foreground text-sm font-medium">
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-						</svg>
-						Learn more at BlueBuzzah.com
-					</a>
 				</div>
 			</div>
 		</section>
