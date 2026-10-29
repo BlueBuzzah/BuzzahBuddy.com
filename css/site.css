@@ -51,6 +51,9 @@ a.bb-btn { box-sizing: border-box; }
 /* Button outline rule: in light themes the brand fill nearly matches abyss (2.5:1, 1.56:1 in light-hc),
    so it gets an outline in its label colour (components/Button/README.md) */
 .hero .bb-btn--primary { border-color: var(--on-brand); }
+/* official store badges at the main-action height (README Motor: target-lg); width follows each image's ratio */
+.store-badge { display: inline-flex; border-radius: var(--radius-md); }
+.store-badge img { height: var(--target-lg); width: auto; }
 @media (min-width: 600px) {
   .hero { padding-block: var(--space-24); }
 }

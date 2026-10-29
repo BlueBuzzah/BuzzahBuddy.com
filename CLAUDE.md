@@ -1,6 +1,6 @@
 # BuzzahBuddy.com
 
-Static "in development" page for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android. One `index.html`, styled with the design system's `css/tokens.css` and `css/bundle.css` (its `bb-` component classes on plain HTML, no React) plus `css/site.css` for layout. `js/theme.js` sets `data-theme` before first paint; `js/site.js` runs the footer's Display settings dialog (theme override). There is no build step. It deploys as-is to GitHub Pages (`CNAME`). The page must stay readable with JavaScript off. The app has no public release, so the page shows no store badges or download buttons until it does (web.md: link only what's released).
+Static "in development" page for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android. One `index.html`, styled with the design system's `css/tokens.css` and `css/bundle.css` (its `bb-` component classes on plain HTML, no React) plus `css/site.css` for layout. `js/theme.js` sets `data-theme` before first paint; `js/site.js` runs the footer's Display settings dialog (theme override). There is no build step. It deploys as-is to GitHub Pages (`CNAME`). The page must stay readable with JavaScript off. The app is in early access: the hero's official store badges link to the TestFlight and Google Play test builds, with a note that they're test versions. Swap the iOS link to the App Store listing at full release.
 
 ## Working on it
 
