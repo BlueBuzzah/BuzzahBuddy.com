@@ -1,2 +1,5 @@
 # Temporary Folder
 temp/
+
+# Claude Code worktrees
+.claude/worktrees/
