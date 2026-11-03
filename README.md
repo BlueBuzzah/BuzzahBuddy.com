@@ -4,10 +4,17 @@ The website for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android
 
 ## Tech stack
 
-- One static `index.html`, styled with the BlueBuzzah design system's `css/tokens.css` and `css/bundle.css` plus `css/site.css`
+- [VitePress](https://vitepress.dev) 1.6.4 builds the page to plain static HTML (MPA mode, custom theme, no framework JavaScript)
+- Styled with the BlueBuzzah design system's `css/tokens.css` and `css/bundle.css` plus `css/site.css`, all in `src/public/css/`
 - Two small scripts: `js/theme.js` (theme before first paint) and `js/site.js` (Display settings). The page reads fine without them.
 
-No build step. It deploys as-is to GitHub Pages.
+```bash
+npm install
+npm run build    # static site in src/.vitepress/dist/
+npm run preview  # serve the build at http://localhost:4173
+```
+
+Pushes to `main` deploy to GitHub Pages through `.github/workflows/deploy.yml`.
 
 ## Disclaimer
 
