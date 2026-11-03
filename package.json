@@ -1,0 +1,12 @@
+{
+	"name": "buzzahbuddy.com",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vitepress build src",
+		"preview": "python3 -m http.server 4173 -d src/.vitepress/dist"
+	},
+	"devDependencies": {
+		"vitepress": "1.6.4"
+	}
+}
