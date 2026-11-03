@@ -3,3 +3,8 @@ temp/
 
 # Claude Code worktrees
 .claude/worktrees/
+
+# VitePress
+node_modules/
+src/.vitepress/dist/
+src/.vitepress/cache/
