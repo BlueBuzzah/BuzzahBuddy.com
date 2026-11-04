@@ -6,9 +6,9 @@ Static "in development" page for BuzzahBuddy, the BlueBuzzah companion app for i
 
 - `src/.vitepress/theme/Layout.vue`: the header, footer and Display settings dialog around the page body.
 - `src/.vitepress/theme/Home.vue`: the page's `<main>`.
-- `src/index.md`: frontmatter only (`title`, `description`, and `head` for the Open Graph meta).
-- `src/.vitepress/config.mts`: the global `<head>`. `theme.js` must stay a blocking script before the stylesheets.
-- `src/public/`: everything the page links, served as-is at the site root (`css/`, `js/`, `assets/`, `favicon.ico`, `site.webmanifest`, `CNAME`).
+- `src/index.md`: frontmatter only (`title`, `description`).
+- `src/.vitepress/config.mts`: the global `<head>`. `theme.js` must stay a blocking script before the stylesheets. Its `transformHead` writes every page's canonical URL, Open Graph and Twitter tags and JSON-LD from the frontmatter, so pages never hand-write them. JSON-LD stays non-medical (no `Medical*` types), and the organization's name is BlueBuzzah Partners.
+- `src/public/`: everything the page links, served as-is at the site root (`css/`, `js/`, `assets/`, `favicon.ico`, `site.webmanifest`, `robots.txt`, `CNAME`).
 
 ## Working on it
 
@@ -18,13 +18,14 @@ npm run build    # static site in src/.vitepress/dist/
 npm run preview  # serve the build at http://localhost:4173
 ```
 
-There are no tests, and no dev server: `vitepress dev` renders pages client-side after `site.js` has run, so it doesn't match production. Rebuild (under a second) and check the preview in a browser: narrow and wide widths, light and dark themes, keyboard.
+There are no tests, and no dev server: `vitepress dev` renders pages client-side after `site.js` has run, so it doesn't match production. Run `rm -rf src/.vitepress/dist` before `npm run build` when verifying: stale files hide missing images. Rebuild (under a second) and check the preview in a browser: narrow and wide widths, light and dark themes, keyboard.
 
 - **Page markup goes in the `.vue` files, never as HTML in a `.md` file.** Markdown ends an HTML block at the first blank line and turns the next indented line into a code block, which breaks the build.
 - **A second page** needs a `src/<name>.md` with `title` and `description` (without a description VitePress writes "A VitePress site"), a `<Name>.vue`, and a `page` frontmatter switch in `Layout.vue`, as BlueBuzzah.com does.
 - Keep `mpa: true` (no Vue runtime or client router; links and `#` anchors behave natively) and `appearance: false` (otherwise VitePress adds its own dark-mode script that fights `theme.js`).
 - Reference public files by absolute path (`/assets/…`, `/css/…`). A missing `<img src>` or `<use href>` target in a `.vue` template fails the build. `<a href>` targets and the `head` paths in `config.mts` aren't checked, so a typo there builds and deploys.
 - The build deletes VitePress's `404.html` (blank in MPA mode), so GitHub Pages serves its own 404.
+- The share card is `src/public/assets/og-image.png`, a 1200×630 PNG in the same layout as BlueBuzzah.com's, used by every page. If the title or lead changes, remake it the way BlueBuzzah.com's `CLAUDE.md` describes, and update `og:image:alt` in `config.mts` if its headline changes.
 
 - **Copied from the design system, never edited by hand:** `src/public/css/tokens.css`, `src/public/css/bundle.css`, `src/public/css/fonts/`, `src/public/assets/bluebuzzah-mark-512.png`, the favicon/app icons in `src/public/assets/` and `src/public/favicon.ico`. After a design-system re-import, re-copy them from the workspace root:
   ```bash
@@ -34,7 +35,7 @@ There are no tests, and no dev server: `vitepress dev` renders pages client-side
   cp $DS/favicons/favicon.ico $SITE/
   ```
   `css/fonts/` must sit next to `css/tokens.css`, since its `@font-face` URLs are relative.
-- **Shared with BlueBuzzah.com:** `js/theme.js` is a copy of BlueBuzzah.com's, and `js/site.js` is its Display settings part (BlueBuzzah.com's also closes its mobile menu). The layout rules in `css/site.css` come from BlueBuzzah.com's too, and so do `config.mts`, `.github/workflows/deploy.yml` and the `package.json` scripts. Keep the two sites in step when changing either.
+- **Shared with BlueBuzzah.com:** `js/theme.js` is a copy of BlueBuzzah.com's, and `js/site.js` is its Display settings part (BlueBuzzah.com's also closes its mobile menu). The layout rules in `css/site.css` come from BlueBuzzah.com's too, and so do `config.mts`, `.github/workflows/deploy.yml` and the `package.json` scripts. Keep the two sites in step when changing either. One difference on purpose: this site has no `lastUpdated` or full-history checkout, because the home page's body is in `Home.vue`, so its `.md` date means nothing and BlueBuzzah.com drops it from its sitemap too. A page with its body in Markdown would need both.
 - **Icons are Lucide SVG files in `src/public/assets/icons/`** (v1.55.0, ISC; see `assets/icons/LICENSE.txt`), one file per glyph, used everywhere by reference:
   `<svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/NAME.svg#icon"/></svg>`
   To add or replace an icon, download it from `https://unpkg.com/lucide-static@1.55.0/icons/NAME.svg` and add `id="icon"` to its root `<svg>`. That's the only edit, and every use updates. The files draw in `currentColor`, so icons take their text's colour. Use sizes 20, 24 or 32, and always pair an icon with a word.
