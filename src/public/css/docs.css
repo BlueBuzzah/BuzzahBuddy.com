@@ -1,0 +1,72 @@
+/* Guide pages (Guide.vue, GuideNav.vue). A trimmed copy of BlueBuzzah.com's css/docs.css, with the same class names so the
+   two stay comparable. Linked on every page, so every rule sits under a .docs or docs component class. Every value is a
+   design-system token, except the type values restated from tokens.css classes where a class can't go (Markdown headings,
+   the step numbers). Breakpoint: web.md's 900px, where the side nav becomes the Contents disclosure. */
+
+.docs { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-6) var(--space-16); }
+
+/* Guide nav (web.md Docs: left nav, scrolls with the page, "Contents" disclosure on mobile) ------------------------- */
+.docs-side { display: none; }
+.docs-nav__list { display: grid; gap: var(--target-gap); }
+/* 48px rows; the current page has a brand-soft fill, a brand edge and bold text, plus aria-current. The edge is a real
+   border (not a shadow) so forced-colors mode keeps it; other rows pad the same space instead of a transparent border,
+   which forced colors would draw. */
+.docs-nav__link {
+  display: flex; align-items: center; box-sizing: border-box; min-height: var(--target);
+  padding: var(--space-2) var(--space-3) var(--space-2) calc(var(--space-3) + var(--space-1));
+  border-radius: var(--radius-sm); color: var(--ink); text-decoration: none;
+}
+.docs-nav__link:hover { background: var(--surface-sunken); }
+.docs-nav__link[aria-current] {
+  padding-left: var(--space-3); border-left: var(--space-1) solid var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+.docs-contents > .docs-nav { padding-top: var(--space-4); }
+
+@media (min-width: 900px) {
+  .docs { grid-template-columns: calc(var(--space-16) * 4) minmax(0, 1fr); gap: var(--space-10); padding-top: var(--space-8); }
+  .docs-contents { display: none; }
+  .docs-side { display: block; }
+}
+
+/* Content column ------------------------------------------------------------------------------------------------- */
+.docs-main { min-width: 0; }
+.docs-title { margin-top: var(--space-1); }
+.docs-lead { margin-top: var(--space-4); max-width: var(--prose-max); }
+.docs-pager { margin-top: var(--space-16); }
+
+/* Markdown content. <Content /> wraps the page in its own div, so its children are .docs-body > div > *. */
+.docs-body { margin-top: var(--space-4); }
+.docs-body > div > * { max-width: var(--prose-max); }
+.docs-body > div > * + * { margin-top: var(--space-4); }
+/* tokens.css .title-l and .title-m, restated for Markdown headings (which can't carry a class); must equal them */
+.docs-body > div > h2 { margin-top: var(--space-12); font-family: var(--font-display); font-size: 1.5rem; line-height: 2rem; font-weight: 600; }
+.docs-body > div > h3 { margin-top: var(--space-8); font-family: var(--font-display); font-size: 1.25rem; line-height: 1.75rem; font-weight: 600; }
+.docs-body > div > ul { padding-left: var(--space-6); }
+
+/* Steps: a top-level ordered list. Each step is a row: number in metric and brand, then the text. Numbers restart at 1
+   in every list (a start= attribute is ignored). */
+.docs-body > div > ol { max-width: none; margin-top: var(--space-2); padding: 0; list-style: none; counter-reset: docs-step; }
+.docs-body > div > ol > li {
+  position: relative; counter-increment: docs-step; max-width: var(--prose-max);
+  padding: var(--space-5) 0 var(--space-5) calc(var(--space-10) + var(--space-4));
+  border-top: var(--border-hairline) solid var(--line);
+}
+/* tokens.css .metric, restated (a pseudo-element can't carry a class); must equal it, except the line height, which is
+   body's so the number centres on the step's first line. Re-check after a design-system re-import. */
+.docs-body > div > ol > li::before {
+  content: counter(docs-step); position: absolute; left: 0; top: var(--space-5); width: var(--space-10);
+  font-family: var(--font-display); font-size: 2.25rem; line-height: 1.625rem; font-weight: 500; letter-spacing: -0.01em;
+  color: var(--brand);
+}
+.docs-body > div > ol > li > * + * { margin-top: var(--space-3); }
+
+/* Banners ------------------------------------------------------------------------------------------------------- */
+.docs-body .bb-banner__text p + p { margin-top: var(--space-2); }
+
+/* Markdown tables. VitePress gives each one tabindex="0", so it shows focus. */
+.docs-body > div > table { width: 100%; border-collapse: collapse; }
+.docs-body th, .docs-body td { padding: var(--space-3) var(--space-4) var(--space-3) 0; border-bottom: var(--border-hairline) solid var(--line); text-align: left; vertical-align: top; }
+.docs-body th { border-bottom-color: var(--line-strong); font-weight: 600; }
+.docs-body table:focus-visible { outline: var(--focus-width) solid transparent; outline-offset: var(--focus-offset); box-shadow: var(--focus-ring); }

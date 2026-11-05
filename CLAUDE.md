@@ -1,12 +1,14 @@
 # BuzzahBuddy.com
 
-Static "in development" page for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android. Built with VitePress 1.6.4 in MPA mode with a custom theme: the output is plain static HTML with no framework JavaScript. One page, `/`, styled with the design system's `css/tokens.css` and `css/bundle.css` (its `bb-` component classes on plain HTML, no React) plus `css/site.css` for layout. `js/theme.js` sets `data-theme` before first paint; `js/site.js` runs the footer's Display settings dialog (theme override). `.github/workflows/deploy.yml` builds pull requests and deploys `main` to GitHub Pages (source: GitHub Actions). The page must stay readable with JavaScript off. The app is in early access: the hero's official store badges link to the TestFlight and Google Play test builds, with a note that they're test versions. Swap the iOS link to the App Store listing at full release.
+Static site for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android. Built with VitePress 1.6.4 in MPA mode with a custom theme: the output is plain static HTML with no framework JavaScript. Pages: `/` and the user guide under `/guide/…`, styled with the design system's `css/tokens.css` and `css/bundle.css` (its `bb-` component classes on plain HTML, no React) plus `css/site.css` for layout and `css/docs.css` (linked on every page, its rules scoped under `.docs`). `js/theme.js` sets `data-theme` before first paint; `js/site.js` adds the mobile-menu close and the footer's Display settings dialog (theme override). `.github/workflows/deploy.yml` builds pull requests and deploys `main` to GitHub Pages (source: GitHub Actions). Pages must stay readable with JavaScript off. The app is in early access: the hero's official store badges link to the TestFlight and Google Play test builds, with a note that they're test versions. Swap the iOS link to the App Store listing at full release.
 
 ## Layout
 
-- `src/.vitepress/theme/Layout.vue`: the header, footer and Display settings dialog around the page body.
-- `src/.vitepress/theme/Home.vue`: the page's `<main>`.
-- `src/index.md`: frontmatter only (`title`, `description`).
+- `src/.vitepress/theme/Layout.vue`: the header, footer and Display settings dialog; picks the page body from the page's `page` frontmatter.
+- `src/.vitepress/theme/Home.vue`, `Guide.vue`: each page's `<main>`. `GuideNav.vue` is the guide nav (rendered twice: side and mobile Contents).
+- `src/.vitepress/theme/guide.ts`: the one page list that drives the nav and the Pager. Add or reorder a page there.
+- `src/index.md`: frontmatter only (`page`, `title`, `description`).
+- `src/guide/*.md`: the guide pages, Markdown only (see Guide pages).
 - `src/.vitepress/config.mts`: the global `<head>`. `theme.js` must stay a blocking script before the stylesheets. Its `transformHead` writes every page's canonical URL, Open Graph and Twitter tags and JSON-LD from the frontmatter, so pages never hand-write them. JSON-LD stays non-medical (no `Medical*` types), and the organization's name is BlueBuzzah Partners.
 - `src/public/`: everything the page links, served as-is at the site root (`css/`, `js/`, `assets/`, `favicon.ico`, `site.webmanifest`, `robots.txt`, `CNAME`).
 
@@ -15,17 +17,18 @@ Static "in development" page for BuzzahBuddy, the BlueBuzzah companion app for i
 ```bash
 npm install
 npm run build    # static site in src/.vitepress/dist/
-npm run preview  # serve the build at http://localhost:4173
+npm run preview  # serve the build at http://localhost:4173 (touches dist/404.html first)
 ```
 
-There are no tests, and no dev server: `vitepress dev` renders pages client-side after `site.js` has run, so it doesn't match production. Run `rm -rf src/.vitepress/dist` before `npm run build` when verifying: stale files hide missing images. Rebuild (under a second) and check the preview in a browser: narrow and wide widths, light and dark themes, keyboard.
+`vitepress preview` crashes without `dist/404.html`, but `buildEnd` deletes it on purpose (GitHub Pages must serve its own 404), so the preview script touches an empty one. It only exists in your local dist. There are no tests, and no dev server: `vitepress dev` renders pages client-side after `site.js` has run, so it doesn't match production. Run `rm -rf src/.vitepress/dist` before `npm run build` when verifying: stale files hide missing images. Rebuild (under a second) and check the preview in a browser: narrow and wide widths, light and dark themes, keyboard.
 
 - **Page markup goes in the `.vue` files, never as HTML in a `.md` file.** Markdown ends an HTML block at the first blank line and turns the next indented line into a code block, which breaks the build.
-- **A second page** needs a `src/<name>.md` with `title` and `description` (without a description VitePress writes "A VitePress site"), a `<Name>.vue`, and a `page` frontmatter switch in `Layout.vue`, as BlueBuzzah.com does.
+- **A new page** needs a `src/<name>.md` with `page`, `title` and `description` (without a description VitePress writes "A VitePress site"), a `<Name>.vue`, and a branch for it in `Layout.vue`. A new guide page needs only a `src/guide/<slug>.md` and an entry in `guide.ts`.
+- **Clean URLs** (`cleanUrls: true`): links never end in `.html` (`/guide/sessions`). The files keep `.html`, so both forms are served.
 - Keep `mpa: true` (no Vue runtime or client router; links and `#` anchors behave natively) and `appearance: false` (otherwise VitePress adds its own dark-mode script that fights `theme.js`).
 - Reference public files by absolute path (`/assets/…`, `/css/…`). A missing `<img src>` or `<use href>` target in a `.vue` template fails the build. `<a href>` targets and the `head` paths in `config.mts` aren't checked, so a typo there builds and deploys.
 - The build deletes VitePress's `404.html` (blank in MPA mode), so GitHub Pages serves its own 404.
-- The share card is `src/public/assets/og-image.png`, a 1200×630 PNG in the same layout as BlueBuzzah.com's, used by every page. If the title or lead changes, remake it the way BlueBuzzah.com's `CLAUDE.md` describes, and update `og:image:alt` in `config.mts` if its headline changes.
+- The home page's share card is `src/public/assets/og-image.png`, a 1200×630 PNG in the same layout as BlueBuzzah.com's, also the fallback for a page with no card of its own. Guide pages' cards live in `src/public/assets/og/`, named from the page path (`guide/sessions.md` → `guide-sessions.png`). If a title or lead changes, remake its card the way BlueBuzzah.com's `CLAUDE.md` describes, and update `og:image:alt` in `config.mts` if the home headline changes.
 
 - **Copied from the design system, never edited by hand:** `src/public/css/tokens.css`, `src/public/css/bundle.css`, `src/public/css/fonts/`, `src/public/assets/bluebuzzah-mark-512.png`, the favicon/app icons in `src/public/assets/` and `src/public/favicon.ico`. After a design-system re-import, re-copy them from the workspace root:
   ```bash
@@ -35,12 +38,20 @@ There are no tests, and no dev server: `vitepress dev` renders pages client-side
   cp $DS/favicons/favicon.ico $SITE/
   ```
   `css/fonts/` must sit next to `css/tokens.css`, since its `@font-face` URLs are relative.
-- **Shared with BlueBuzzah.com:** `js/theme.js` is a copy of BlueBuzzah.com's, and `js/site.js` is its Display settings part (BlueBuzzah.com's also closes its mobile menu). The layout rules in `css/site.css` come from BlueBuzzah.com's too, and so do `config.mts`, `.github/workflows/deploy.yml` and the `package.json` scripts. Keep the two sites in step when changing either. One difference on purpose: this site has no `lastUpdated` or full-history checkout, because the home page's body is in `Home.vue`, so its `.md` date means nothing and BlueBuzzah.com drops it from its sitemap too. A page with its body in Markdown would need both.
+- **Shared with BlueBuzzah.com:** `js/theme.js` is a copy of BlueBuzzah.com's, and `js/site.js` is its mobile-menu and Display settings parts. The layout rules in `css/site.css`, `css/docs.css` (trimmed, same class names) and `Notices.vue` come from BlueBuzzah.com's too, and so do `config.mts`, `.github/workflows/deploy.yml` and the `package.json` scripts. Keep the two sites in step when changing either.
 - **Icons are Lucide SVG files in `src/public/assets/icons/`** (v1.55.0, ISC; see `assets/icons/LICENSE.txt`), one file per glyph, used everywhere by reference:
   `<svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/NAME.svg#icon"/></svg>`
   To add or replace an icon, download it from `https://unpkg.com/lucide-static@1.55.0/icons/NAME.svg` and add `id="icon"` to its root `<svg>`. That's the only edit, and every use updates. The files draw in `currentColor`, so icons take their text's colour. Use sizes 20, 24 or 32, and always pair an icon with a word.
 - Static markup that mirrors a `bundle.js` component carries a `<!-- mirrors bundle.js <Comp> (DS import …) -->` comment. Re-check it after a design-system re-import.
 - **Worktrees go only in `.claude/worktrees/<name>`** inside this repo (gitignored), never beside it in the workspace's `projects/` or anywhere else.
+
+## Guide pages (`/guide/…`)
+
+- Markdown in `src/guide/`, frontmatter `page: guide`, `title`, `description`, `lead`, and optionally `shareTitle` (replaces `title` in the `<title>` and share tags when `title` alone says little, as with "Start here"). `Guide.vue` renders the rest, including the Pager from the page's place in `guide.ts`.
+- **Markdown uses only `<Notices />` (the legal notices, verbatim; put it on every therapy page) and never raw HTML blocks.**
+- Every top-level ordered list renders as numbered steps (numbers restart at 1; `start=` is ignored). Keep a section's steps one list, and use bullets for anything that isn't a step.
+- Pages still waiting for a screenshot carry `<!-- planned-image: /guide/img/NAME | screenshot | Shows: … Arrow: … -->` where the image goes. There's no image component yet: bring BlueBuzzah.com's `Shot.vue` and lightbox over with the first screenshot, with a thumbnail size that suits portrait phone screens.
+- Bold names are the app's labels, in the app's Title Case. The site's own headings stay sentence case.
 
 ## Design System — required for every UI/UX change
 

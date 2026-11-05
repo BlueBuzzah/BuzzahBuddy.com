@@ -1,5 +1,5 @@
 /* BuzzahBuddy.com layout. Every value is a design-system token (css/tokens.css); components come from
-   css/bundle.css. Breakpoints are web.md's: 600px (gutters, hero type) and 900px (hero mark, card grid). */
+   css/bundle.css. Breakpoints are web.md's: 600px (gutters, hero type) and 900px (hero mark, card grid, menu collapse). */
 
 html { scroll-behavior: smooth; }
 h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
@@ -69,6 +69,28 @@ a.bb-btn { box-sizing: border-box; }
 /* Header (web.md Layout) ---------------------------------------------- */
 .site-header { position: relative; background: var(--surface); border-bottom: var(--border-hairline) solid var(--line); }
 .header-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--target-gap); padding-block: var(--space-3); }
+.nav-desktop { margin-left: auto; }
+.nav-desktop ul { display: flex; gap: var(--target-gap); }
+.nav-mobile { margin-left: auto; }
+.nav-mobile summary { list-style: none; }
+.nav-mobile summary::-webkit-details-marker { display: none; }
+.nav-mobile__panel {
+  position: absolute; left: 0; right: 0; top: 100%; z-index: 10;
+  display: grid; gap: var(--target-gap); padding: var(--space-4);
+  background: var(--surface-overlay); border-bottom: var(--border-hairline) solid var(--line); box-shadow: var(--shadow-3);
+}
+.nav-mobile__panel ul { display: grid; gap: var(--target-gap); }
+@media (max-width: 899.98px) {
+  .nav-desktop, .header-cta { display: none; }
+}
+/* the word alone on phones, so Menu stays beside the longer BuzzahBuddy lockup instead of wrapping under it */
+@media (max-width: 599.98px) {
+  .nav-mobile summary { padding-inline: var(--space-3); }
+  .nav-mobile summary .bb-icon { display: none; }
+}
+@media (min-width: 900px) {
+  .nav-mobile { display: none; }
+}
 
 /* Footer (web.md Layout: disclaimer, GitHub, license, contact) --------- */
 .site-footer { background: var(--surface); border-top: var(--border-hairline) solid var(--line); padding-block: var(--space-8) var(--space-6); }
@@ -112,7 +134,7 @@ a.bb-btn { box-sizing: border-box; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 @media (forced-colors: active) {
-  .site-header, .site-footer, .settings-dialog { border-color: CanvasText; }
+  .site-header, .site-footer, .nav-mobile__panel, .settings-dialog { border-color: CanvasText; }
   /* the hero rule above beats bundle.css's forced-colors ButtonText border; restore it */
   .hero .bb-btn--primary { border-color: ButtonText; }
 }

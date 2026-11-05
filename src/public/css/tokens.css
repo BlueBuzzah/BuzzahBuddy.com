@@ -26,6 +26,14 @@
   --abyss: #011f5f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #011f5f;
+  --light-blue: #2f8bff;
+  --light-cyan: #2ee8ff;
+  --light-green: #3ee66b;
+  --light-yellow: #ffe23a;
+  --light-orange: #ff962b;
+  --light-red: #ff4646;
+  --light-purple: #c77aff;
   --focus: #0047b8;
   --success: #00785a;
   --success-soft: #dcf5ec;
@@ -76,6 +84,7 @@
   --abyss: #123a8f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #01133d;
   --focus: #5fe3ff;
   --success: #3fd6a8;
   --success-soft: #06301f;
@@ -115,6 +124,7 @@
   --abyss: #011f5f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #011f5f;
   --focus: #000000;
   --success: #005a43;
   --success-soft: #dcf5ec;
@@ -154,6 +164,7 @@
   --abyss: #123a8f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #01133d;
   --focus: #ffe14d;
   --success: #7debc8;
   --success-soft: #06301f;
@@ -193,6 +204,7 @@
   --abyss: #123a8f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #01133d;
   --focus: #5fe3ff;
   --success: #3fd6a8;
   --success-soft: #06301f;
@@ -232,6 +244,14 @@
   --abyss: #011f5f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #011f5f;
+  --light-blue: #2f8bff;
+  --light-cyan: #2ee8ff;
+  --light-green: #3ee66b;
+  --light-yellow: #ffe23a;
+  --light-orange: #ff962b;
+  --light-red: #ff4646;
+  --light-purple: #c77aff;
   --focus: #0047b8;
   --success: #00785a;
   --success-soft: #dcf5ec;
@@ -282,6 +302,7 @@
   --abyss: #011f5f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #011f5f;
   --focus: #000000;
   --success: #005a43;
   --success-soft: #dcf5ec;
@@ -321,6 +342,7 @@
   --abyss: #123a8f;
   --on-abyss: #ffffff;
   --icon-ground: #080c1b;
+  --media-ground: #01133d;
   --focus: #ffe14d;
   --success: #7debc8;
   --success-soft: #06301f;

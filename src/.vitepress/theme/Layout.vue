@@ -1,18 +1,40 @@
 <script setup lang="ts">
+import { useData } from 'vitepress'
 import Home from './Home.vue'
+import Guide from './Guide.vue'
+
+const { frontmatter } = useData()
 </script>
 
 <template>
 	<header class="site-header">
 		<div class="container header-row">
-			<div class="lockup">
+			<a class="lockup" href="/">
 				<img src="/assets/bluebuzzah-mark-512.png" alt="" width="42" height="40">
 				<span class="title-l">BuzzahBuddy</span>
-			</div>
+			</a>
+			<nav class="nav-desktop" aria-label="Main">
+				<ul class="list-reset">
+					<li><a class="nav-link label" href="/guide/">Guide</a></li>
+				</ul>
+			</nav>
+			<a class="bb-btn bb-btn--primary header-cta" href="/#download"><svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/download.svg#icon"/></svg><span class="bb-btn__label">Downloads</span></a>
+			<details class="nav-mobile">
+				<summary class="bb-btn bb-btn--quiet"><svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/menu.svg#icon"/></svg><span class="bb-btn__label">Menu</span></summary>
+				<div class="nav-mobile__panel">
+					<nav aria-label="Main">
+						<ul class="list-reset">
+							<li><a class="nav-link label" href="/guide/">Guide</a></li>
+						</ul>
+					</nav>
+					<a class="bb-btn bb-btn--primary bb-btn--full" href="/#download"><svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/download.svg#icon"/></svg><span class="bb-btn__label">Downloads</span></a>
+				</div>
+			</details>
 		</div>
 	</header>
 
-	<Home />
+	<Home v-if="frontmatter.page === 'home'" />
+	<Guide v-else-if="frontmatter.page === 'guide'" />
 
 	<footer class="site-footer">
 		<div class="container footer-grid">
@@ -38,7 +60,7 @@ import Home from './Home.vue'
 			<h2 class="title-l" id="settings-title">Display settings</h2>
 			<p class="body-s text-muted">This site follows your device's settings. Changes here apply to this browser only.</p>
 			<div class="theme-controls">
-				<!-- mirrors bundle.js SegmentedControl (DS import 1793120889-b415) -->
+				<!-- mirrors bundle.js SegmentedControl (DS import 1793729877-6a2e) -->
 				<div class="bb-seg">
 					<span class="bb-seg__label" id="theme-label">Appearance</span>
 					<div class="bb-seg__track" role="radiogroup" aria-labelledby="theme-label">
@@ -47,7 +69,7 @@ import Home from './Home.vue'
 						<button type="button" role="radio" aria-checked="false" tabindex="-1" class="bb-seg__opt" data-mode="dark"><span>Dark</span></button>
 					</div>
 				</div>
-				<!-- mirrors bundle.js Switch (DS import 1793120889-b415) -->
+				<!-- mirrors bundle.js Switch (DS import 1793729877-6a2e) -->
 				<button type="button" role="switch" aria-checked="false" aria-labelledby="hc-label" aria-describedby="hc-desc" class="bb-switch">
 					<span class="bb-switch__text"><span class="bb-switch__label" id="hc-label">High contrast</span><span class="bb-switch__desc" id="hc-desc">Stronger colors and borders</span></span>
 					<span class="bb-switch__track" aria-hidden="true"><span class="bb-switch__thumb"></span></span>

@@ -1,7 +1,12 @@
 /* Progressive enhancement only: every page reads fine without this file. */
 
+// Close the mobile menu after picking a link on the same page.
+document.querySelectorAll('.nav-mobile a').forEach(function (a) {
+  a.addEventListener('click', function () { a.closest('details').open = false; });
+});
+
 // Display settings sheet (footer): Appearance (System / Light / Dark) + High contrast.
-// Mirrors bundle.js SegmentedControl and Switch behaviour (DS import 1793120889-b415).
+// Mirrors bundle.js SegmentedControl and Switch behaviour (DS import 1793729877-6a2e).
 (function () {
   var t = window.bbTheme;
   var box = document.querySelector('.theme-controls');
@@ -12,7 +17,7 @@
 
   function check(size) {
     return '<svg class="bb-icon" width="' + size + '" height="' + size + '" viewBox="0 0 24 24" aria-hidden="true" ' +
-      'focusable="false"><use href="assets/icons/check.svg#icon"/></svg>';
+      'focusable="false"><use href="/assets/icons/check.svg#icon"/></svg>';
   }
 
   function render() {
