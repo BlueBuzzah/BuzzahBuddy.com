@@ -10,7 +10,7 @@ lead: "BuzzahBuddy is the companion app for BlueBuzzah, open-source vibrotactile
 
 This guide covers the main things you can do in the app. It says "phone" throughout, but everything works the same way on an iPad or tablet.
 
-<!-- planned-image: /guide/img/01-app-overview | screenshot | Shows: The Session tab on a phone with gloves connected and a session ready to start. Use it as the guide's opening image. Arrow: None. -->
+<Shot src="/guide/img/01-app-overview" alt="The Session tab with gloves connected and a two-hour session ready to start." />
 
 ## What you need
 
@@ -32,4 +32,4 @@ The tab bar at the bottom of the screen has 4 tabs.
 | **History** | See your past sessions, add notes and share a report |
 | **Settings** | Change auto-connect, appearance, Demo Mode and data options |
 
-<!-- planned-image: /guide/img/02-tab-bar | screenshot | Shows: The full Session tab with the tab bar at the bottom of the screen. Arrow: One arrow to each of the four tabs: Session, Gloves, History and Settings. Label each arrow with the tab name. -->
+<Shot src="/guide/img/02-tab-bar" alt="The Session tab. Four labeled arrows point to the Session, Gloves, History and Settings tabs in the tab bar." />

@@ -9,7 +9,7 @@ lead: Open the app for the first time, then connect to your gloves.
 
 The first time you open BuzzahBuddy, the **Welcome to BuzzahBuddy** screen shows 2 notes. Read them, then tap **Continue**. You can read them again later in **Settings**, under **About**.
 
-<!-- planned-image: /guide/img/03-welcome-screen | screenshot | Shows: The Welcome screen with the two notes and the Continue button. Arrow: Points to the Continue button. -->
+<Shot src="/guide/img/03-welcome-screen" alt="The Welcome to BuzzahBuddy screen with its two notes. An arrow points to the Continue button." />
 
 ## Connect to your gloves
 
@@ -19,9 +19,9 @@ The first time you open BuzzahBuddy, the **Welcome to BuzzahBuddy** screen shows
 4. When your gloves appear in the list, tap their card.
 5. Wait while BuzzahBuddy connects.
 
-<!-- planned-image: /guide/img/04-session-get-started | screenshot | Shows: The Session tab before connecting, with the Get Started card and its three steps. Arrow: Points to the Scan for Gloves button. -->
+<Shot src="/guide/img/04-session-get-started" alt="The Session tab before connecting, with the Get Started card and its three steps. An arrow points to the Scan for Gloves button." />
 
-<!-- planned-image: /guide/img/05-scan-results | screenshot | Shows: The Gloves tab after a scan, with a pair of gloves in the list and its signal strength. Arrow: Points to the Connect link on the gloves' card. -->
+<Shot src="/guide/img/05-scan-results" alt="The Gloves tab after a scan, listing a pair of gloves and its signal strength. An arrow points to the Connect link on the card." />
 
 If no gloves appear, check that:
 

@@ -18,4 +18,4 @@ Turning on **Demo Mode** disconnects your gloves. While it's on, **History** sho
 
 **Clear All Data** can't be undone.
 
-<!-- planned-image: /guide/img/19-settings | screenshot | Shows: The Settings tab with the Gloves, Appearance and Demo sections. Arrow: Points to the Demo Mode switch. -->
+<Shot src="/guide/img/19-settings" alt="The Settings tab with the Gloves, Appearance and Demo sections. An arrow points to the Demo Mode switch." />

@@ -1,6 +1,6 @@
 # BuzzahBuddy.com
 
-Static site for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android. Built with VitePress 1.6.4 in MPA mode with a custom theme: the output is plain static HTML with no framework JavaScript. Pages: `/` and the user guide under `/guide/…`, styled with the design system's `css/tokens.css` and `css/bundle.css` (its `bb-` component classes on plain HTML, no React) plus `css/site.css` for layout and `css/docs.css` (linked on every page, its rules scoped under `.docs`). `js/theme.js` sets `data-theme` before first paint; `js/site.js` adds the mobile-menu close and the footer's Display settings dialog (theme override). `.github/workflows/deploy.yml` builds pull requests and deploys `main` to GitHub Pages (source: GitHub Actions). Pages must stay readable with JavaScript off. The app is in early access: the hero's official store badges link to the TestFlight and Google Play test builds, with a note that they're test versions. Swap the iOS link to the App Store listing at full release.
+Static site for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android. Built with VitePress 1.6.4 in MPA mode with a custom theme: the output is plain static HTML with no framework JavaScript. Pages: `/` and the user guide under `/guide/…`, styled with the design system's `css/tokens.css` and `css/bundle.css` (its `bb-` component classes on plain HTML, no React) plus `css/site.css` for layout and `css/docs.css` (linked on every page, its rules scoped under `.docs`). `js/theme.js` sets `data-theme` before first paint; `js/site.js` adds the mobile-menu close, the footer's Display settings dialog (theme override) and the guide's image lightbox. `.github/workflows/deploy.yml` builds pull requests and deploys `main` to GitHub Pages (source: GitHub Actions). Pages must stay readable with JavaScript off. The app is in early access: the hero's official store badges link to the TestFlight and Google Play test builds, with a note that they're test versions. Swap the iOS link to the App Store listing at full release.
 
 ## Layout
 
@@ -38,7 +38,7 @@ npm run preview  # serve the build at http://localhost:4173 (touches dist/404.ht
   cp $DS/favicons/favicon.ico $SITE/
   ```
   `css/fonts/` must sit next to `css/tokens.css`, since its `@font-face` URLs are relative.
-- **Shared with BlueBuzzah.com:** `js/theme.js` is a copy of BlueBuzzah.com's, and `js/site.js` is its mobile-menu and Display settings parts. The layout rules in `css/site.css`, `css/docs.css` (trimmed, same class names) and `Notices.vue` come from BlueBuzzah.com's too, and so do `config.mts`, `.github/workflows/deploy.yml` and the `package.json` scripts. Keep the two sites in step when changing either.
+- **Shared with BlueBuzzah.com:** `js/theme.js` is a copy of BlueBuzzah.com's, and `js/site.js` is its mobile-menu, Display settings and lightbox parts. The layout rules in `css/site.css`, `css/docs.css` (trimmed, same class names), `Notices.vue` and `Shot.vue` come from BlueBuzzah.com's too, and so do `config.mts`, `.github/workflows/deploy.yml` and the `package.json` scripts. Keep the two sites in step when changing either.
 - **Icons are Lucide SVG files in `src/public/assets/icons/`** (v1.55.0, ISC; see `assets/icons/LICENSE.txt`), one file per glyph, used everywhere by reference:
   `<svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/NAME.svg#icon"/></svg>`
   To add or replace an icon, download it from `https://unpkg.com/lucide-static@1.55.0/icons/NAME.svg` and add `id="icon"` to its root `<svg>`. That's the only edit, and every use updates. The files draw in `currentColor`, so icons take their text's colour. Use sizes 20, 24 or 32, and always pair an icon with a word.
@@ -48,9 +48,13 @@ npm run preview  # serve the build at http://localhost:4173 (touches dist/404.ht
 ## Guide pages (`/guide/…`)
 
 - Markdown in `src/guide/`, frontmatter `page: guide`, `title`, `description`, `lead`, and optionally `shareTitle` (replaces `title` in the `<title>` and share tags when `title` alone says little, as with "Start here"). `Guide.vue` renders the rest, including the Pager from the page's place in `guide.ts`.
-- **Markdown uses only `<Notices />` (the legal notices, verbatim; put it on every therapy page) and never raw HTML blocks.**
+- **Markdown uses only `<Notices />` (the legal notices, verbatim; put it on every therapy page), `<Shot src alt caption>` (blank lines around it) and never raw HTML blocks.**
 - Every top-level ordered list renders as numbered steps (numbers restart at 1; `start=` is ignored). Keep a section's steps one list, and use bullets for anything that isn't a step.
-- Pages still waiting for a screenshot carry `<!-- planned-image: /guide/img/NAME | screenshot | Shows: … Arrow: … -->` where the image goes. There's no image component yet: bring BlueBuzzah.com's `Shot.vue` and lightbox over with the first screenshot, with a thumbnail size that suits portrait phone screens.
+- Pages still waiting for a screenshot carry `<!-- planned-image: /guide/img/NAME | screenshot | Shows: … Arrow: … -->` where the `<Shot>` goes.
+- Screenshots come from BuzzahBuddy's `guide-screenshot` skill. They live in `src/public/guide/img/` as `NAME.webp` (full size, never upscaled) and `NAME-thumb.webp` (640px wide), converted once with `cwebp` from the source PNG. No script is committed. Reference them as `/guide/img/NAME` in `<Shot src>`. `Shot.vue` and `docs.css` size the thumbnail for a portrait iPhone shot (1206×2622), so other shapes need their own frame. The alt text says what each arrow points to. A missing image doesn't fail the build; check the built HTML:
+  ```bash
+  cd src/.vitepress/dist && grep -rhoE '/guide/img/[A-Za-z0-9._-]+' --include='*.html' . | sort -u | while read f; do [ -f ".$f" ] || echo "MISSING $f"; done
+  ```
 - Bold names are the app's labels, in the app's Title Case. The site's own headings stay sentence case.
 
 ## Design System — required for every UI/UX change
