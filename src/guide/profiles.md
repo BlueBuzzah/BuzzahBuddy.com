@@ -29,9 +29,9 @@ Your gloves restart to use the new profile. They usually reconnect on their own 
 
 You can't change the profile during a session. Stop the session first.
 
-<!-- planned-image: /guide/img/06-gloves-profile-list | screenshot | Shows: The Gloves tab while connected, with the Therapy Profile list and one profile selected. Arrow: Two arrows. One points to the selected profile. One points to the Apply Settings button. -->
+<Shot src="/guide/img/06-gloves-profile-list" alt="The Gloves tab with the Custom profile selected. One arrow points to the selected profile and one to the Apply Settings button." />
 
-<!-- planned-image: /guide/img/07-applying-settings | screenshot | Shows: The Applying Settings screen while the gloves restart. Arrow: None. -->
+<Shot src="/guide/img/07-applying-settings" alt="The Applying Settings screen, which says your gloves are restarting with the new settings." />
 
 ## Make your own Custom profile
 
@@ -53,4 +53,4 @@ You can't change the profile during a session. Stop the session first.
 
 If your settings differ from the published study, BuzzahBuddy shows a note at the top of the screen. They're still within what the gloves accept, but no study has tested them. Tap **Use Study Settings** to fill in the study's values.
 
-<!-- planned-image: /guide/img/08-custom-profile-form | screenshot | Shows: The Custom Profile screen with the setting steppers, scrolled to show Buzz Length at the top. Arrow: Points to the plus and minus buttons on one stepper, to show how to change a value. -->
+<Shot src="/guide/img/08-custom-profile-form" alt="The Custom Profile screen with number fields for each setting. An arrow points to the Buzz Length field." />

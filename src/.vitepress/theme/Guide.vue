@@ -32,5 +32,11 @@ const next = pages[index + 1]
 				<a v-if="next" class="bb-pager__link bb-pager__link--next" :href="next.href"><span class="bb-pager__text"><span class="bb-pager__hint">Next</span><span class="bb-pager__title">{{ next.title }}</span></span><svg class="bb-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/chevron-right.svg#icon"/></svg></a>
 			</nav>
 		</main>
+
+		<!-- mirrors bundle.js Lightbox (DS import 1793729877-6a2e): the page's one shared dialog, which site.js fills and opens -->
+		<dialog class="bb-lightbox" aria-label="Image">
+			<form method="dialog" class="bb-lightbox__bar"><button class="bb-lightbox__close"><svg class="bb-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/x.svg#icon"/></svg><span>Close</span></button></form>
+			<img class="bb-lightbox__img" alt=""><p class="bb-lightbox__caption"></p>
+		</dialog>
 	</div>
 </template>

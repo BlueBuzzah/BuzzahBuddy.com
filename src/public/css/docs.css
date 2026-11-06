@@ -62,6 +62,12 @@
 }
 .docs-body > div > ol > li > * + * { margin-top: var(--space-3); }
 
+/* Screenshots: the Lightbox thumbnail's 4:3 frame would shrink a phone screen, so the frame takes the shots' portrait shape.
+   Neighbouring shots sit side by side and wrap when the column is too narrow. */
+.docs-body > div > .shot { display: inline-block; vertical-align: top; width: 100%; max-width: calc(var(--space-20) * 3); margin-right: var(--space-6); }
+.docs .shot .bb-thumb__img { aspect-ratio: 1206 / 2622; }
+.docs .shot figcaption { margin-top: var(--space-2); }
+
 /* Banners ------------------------------------------------------------------------------------------------------- */
 .docs-body .bb-banner__text p + p { margin-top: var(--space-2); }
 

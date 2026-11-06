@@ -14,7 +14,7 @@ lead: The History tab shows the sessions this phone recorded. Your saved session
 
 The calendar is hidden at very large text sizes. The averages and the day list show the same time.
 
-<!-- planned-image: /guide/img/15-history-overview | screenshot | Shows: The History tab with the Period control, the four Overview tiles and the Calendar. Arrow: Points to the Period control. -->
+<Shot src="/guide/img/15-history-overview" alt="The History tab with the Period control, the four Overview tiles and the Calendar. An arrow points to the Period control." />
 
 <!-- planned-image: /guide/img/16-history-day-note | screenshot | Shows: A card in the Days list with a day's total, its sessions and a saved note. Arrow: Points to the Edit Note button. -->
 
@@ -24,6 +24,6 @@ Tap **Share Report** to send your history for the chosen period. You get a PDF r
 
 You need at least 1 saved session before you can share a report.
 
-<!-- planned-image: /guide/img/17-share-report | screenshot | Shows: The Share a Report section of the History tab, with the Share Report button. Arrow: Points to the Share Report button. -->
+<Shot src="/guide/img/17-share-report" alt="The Share a Report section of the History tab. An arrow points to the Share Report button." />
 
 <!-- planned-image: /guide/img/18-report-pdf | screenshot | Shows: The first page of a PDF report. Use sample data so that no real person's history appears. Arrow: None. -->

@@ -14,7 +14,7 @@ Use **Test Motors** to check that each finger motor buzzes. You can't test motor
 3. Pick a **Buzz Length**. Longer buzzes are easier to notice.
 4. Tap each finger to make it buzz. A check shows that finger is done.
 
-<!-- planned-image: /guide/img/13-test-motors-fingers | screenshot | Shows: Test Motors step 3, with the finger buttons for the primary and secondary gloves and at least one finger checked. Arrow: Points to a finger button, with a second arrow to the check on a tested finger. -->
+<Shot src="/guide/img/13-test-motors-fingers" alt="Test Motors step 3, with finger buttons for the primary and secondary gloves. One arrow points to a finger button and one to the check on a tested finger." />
 
 ## Other glove settings
 

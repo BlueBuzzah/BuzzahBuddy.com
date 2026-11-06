@@ -17,16 +17,16 @@ lead: Start, pause and stop a session on the Session tab.
 
 The ring in the middle of the screen shows how much time is left. Your phone stays still during a session. The gloves are the only thing that buzzes.
 
-<!-- planned-image: /guide/img/09-session-ready | screenshot | Shows: The Session tab while connected and ready, with the gloves card, session ring and Therapy Profile card. Arrow: Points to the Start Session button. -->
+<Shot src="/guide/img/09-session-ready" alt="The Session tab while connected and ready, with the gloves card, session ring and Therapy Profile card. An arrow points to the Start Session button." />
 
-<!-- planned-image: /guide/img/10-session-running | screenshot | Shows: The Session tab during a running session, with time left in the ring and the Pause and Stop buttons. Arrow: Two arrows. One points to the time left in the ring. One points to the Pause and Stop buttons. -->
+<Shot src="/guide/img/10-session-running" alt="The Session tab during a session. One arrow points to the time left in the ring and one to the Pause and Stop buttons." />
 
 ## Pause, resume or stop
 
 - **Pause** holds the session. The button then changes to **Resume**. Paused time isn't counted in your history.
 - **Stop** asks you to confirm. Tap **Stop Session** to end it, or **Keep Going** to carry on. The time so far is saved.
 
-<!-- planned-image: /guide/img/11-stop-confirmation | screenshot | Shows: The "Stop This Session?" sheet over the Session tab. Arrow: Points to the Stop Session button. -->
+<Shot src="/guide/img/11-stop-confirmation" alt="The Stop This Session? sheet over the Session tab. An arrow points to the Stop Session button." />
 
 ## When a session ends
 
