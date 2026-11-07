@@ -17,7 +17,7 @@ lead: Start, pause and stop a session on the Session tab.
 
 The ring in the middle of the screen shows how much time is left. Your phone stays still during a session. The gloves are the only thing that buzzes.
 
-<Shot src="/guide/img/09-session-ready" alt="The Session tab while connected and ready, with the gloves card, session ring and profile card. An arrow points to the Start Session button." />
+<Shot src="/guide/img/09-session-ready" alt="The Session tab while connected and ready, with the gloves card, session ring and Session Profile card. An arrow points to the Start Session button." />
 
 <Shot src="/guide/img/10-session-running" alt="The Session tab during a session. One arrow points to the time left in the ring and one to the Pause and Stop buttons." />
 
