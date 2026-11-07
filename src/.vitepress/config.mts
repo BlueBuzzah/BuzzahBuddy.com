@@ -26,7 +26,7 @@ const app = {
 	'@type': 'MobileApplication',
 	'@id': `${site}/#app`,
 	name: 'BuzzahBuddy',
-	description: 'BuzzahBuddy lets you control therapy sessions, adjust and customize settings, and track usage, all from your phone.',
+	description: 'BuzzahBuddy lets you control sessions, adjust and customize settings, and track usage, all from your phone.',
 	url: `${site}/`,
 	// UtilitiesApplication, not HealthApplication: no medical claims (legal notices)
 	applicationCategory: 'UtilitiesApplication',
