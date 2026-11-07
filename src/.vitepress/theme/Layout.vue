@@ -47,6 +47,7 @@ const { frontmatter } = useData()
 					<ul class="list-reset footer-links">
 						<li><a class="nav-link body-s" href="https://github.com/BlueBuzzah/BuzzahBuddy">GitHub</a></li>
 						<li><a class="nav-link body-s" href="https://github.com/BlueBuzzah/BuzzahBuddy/blob/main/LICENSE">License</a></li>
+						<li><a class="nav-link body-s" href="https://bluebuzzah.com/terms.html">Terms and safety</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com/privacy.html">Privacy policy</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com">BlueBuzzah.com</a></li>
 						<li class="body-s js-only" hidden><button type="button" class="bb-btn bb-btn--quiet btn-compact" data-open-settings><svg class="bb-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/settings.svg#icon"/></svg><span class="bb-btn__label">Display settings</span></button></li>
