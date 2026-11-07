@@ -12,12 +12,12 @@ lead: Start, pause and stop a session on the Session tab.
 1. Turn on both gloves and connect to them.
 2. Put on your gloves.
 3. On the **Session** tab, check that the card at the top says your gloves are connected.
-4. Check the profile shown on the **Therapy Profile** card.
+4. Check the profile shown on the **Session Profile** card.
 5. Tap **Start Session**.
 
 The ring in the middle of the screen shows how much time is left. Your phone stays still during a session. The gloves are the only thing that buzzes.
 
-<Shot src="/guide/img/09-session-ready" alt="The Session tab while connected and ready, with the gloves card, session ring and Therapy Profile card. An arrow points to the Start Session button." />
+<Shot src="/guide/img/09-session-ready" alt="The Session tab while connected and ready, with the gloves card, session ring and profile card. An arrow points to the Start Session button." />
 
 <Shot src="/guide/img/10-session-running" alt="The Session tab during a session. One arrow points to the time left in the ring and one to the Pause and Stop buttons." />
 

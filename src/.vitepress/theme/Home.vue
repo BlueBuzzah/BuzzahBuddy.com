@@ -6,7 +6,7 @@
 					<!-- mirrors bundle.js StatusBadge tone="brand" icon="flask-conical" (DS import 1793729877-6a2e) -->
 					<p><span class="bb-badge bb-badge--brand"><svg class="bb-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/flask-conical.svg#icon"/></svg><span>Early Access</span></span></p>
 					<h1 class="display-xl">The companion app for BlueBuzzah gloves</h1>
-					<p class="body-l prose">BuzzahBuddy lets you control therapy sessions, adjust and customize settings, and track usage, all from your phone. Open-source and always free.</p>
+					<p class="body-l prose">BuzzahBuddy lets you control sessions, adjust and customize settings, and track usage, all from your phone. Open-source and always free.</p>
 					<!-- web.md Download pages: official store badges, equal weight, no platform detection -->
 					<div class="button-row" id="download">
 						<a class="store-badge" href="https://testflight.apple.com/join/DMuPNBGA" aria-describedby="early-access-note"><img src="/assets/apple-appstore.png" alt="Download on the App Store" width="512" height="171"></a>
@@ -30,12 +30,12 @@
 					<!-- mirrors bundle.js Card as="li" padding="lg" (DS import 1793729877-6a2e) -->
 					<li class="bb-card bb-card--lg" aria-labelledby="card-wireless">
 						<header class="bb-card__head"><h3 class="bb-card__title title-with-icon" id="card-wireless"><svg class="bb-icon icon-brand" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/bluetooth.svg#icon"/></svg>Wireless control</h3></header>
-						<p>Connects to your gloves over Bluetooth. Control therapy sessions and customize settings without a cable.</p>
+						<p>Connects to your gloves over Bluetooth. Control sessions and customize settings without a cable.</p>
 					</li>
 					<!-- mirrors bundle.js Card as="li" padding="lg" (DS import 1793729877-6a2e) -->
 					<li class="bb-card bb-card--lg" aria-labelledby="card-history">
 						<header class="bb-card__head"><h3 class="bb-card__title title-with-icon" id="card-history"><svg class="bb-icon icon-brand" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/calendar.svg#icon"/></svg>Session history</h3></header>
-						<p>Track and report on therapy session history; duration, profiles, and parameters.</p>
+						<p>Track and report on your session history; duration, profiles, and parameters.</p>
 					</li>
 				</ul>
 				<!-- mirrors bundle.js Banner tone="warning" (DS import 1793729877-6a2e) -->

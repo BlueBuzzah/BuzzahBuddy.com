@@ -1,8 +1,8 @@
 ---
 page: guide
-title: Choose a therapy profile
-description: "Compare the BuzzahBuddy therapy profiles, change the one your gloves use, and make your own Custom profile."
-lead: A therapy profile sets how your gloves buzz and how long a session lasts. Your gloves use 1 profile at a time.
+title: Choose a profile
+description: "Compare the BuzzahBuddy profiles, change the one your gloves use, and make your own Custom profile."
+lead: A profile sets how your gloves buzz and how long a session lasts. Your gloves use 1 profile at a time.
 ---
 
 <Notices />
@@ -21,7 +21,7 @@ lead: A therapy profile sets how your gloves buzz and how long a session lasts. 
 ## Change your profile
 
 1. Open the **Gloves** tab.
-2. Under **Therapy Profile**, tap the profile you want.
+2. Under **Session Profile**, tap the profile you want.
 3. Tap **Apply Settings**.
 4. Tap **Apply and Restart**.
 

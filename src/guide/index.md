@@ -28,7 +28,7 @@ The tab bar at the bottom of the screen has 4 tabs.
 | Tab | What it's for |
 |---|---|
 | **Session** | See your gloves' status, and start, pause and stop sessions |
-| **Gloves** | Connect, pick a therapy profile, change glove settings and test motors |
+| **Gloves** | Connect, pick a profile, change glove settings and test motors |
 | **History** | See your past sessions, add notes and share a report |
 | **Settings** | Change auto-connect, appearance, Demo Mode and data options |
 
