@@ -3,18 +3,22 @@
 		<section class="hero">
 			<div class="container hero__inner">
 				<div class="stack hero__text">
-					<!-- mirrors bundle.js StatusBadge tone="brand" icon="flask-conical" (DS import 1793729877-6a2e) -->
-					<p><span class="bb-badge bb-badge--brand"><svg class="bb-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/flask-conical.svg#icon"/></svg><span>Early Access</span></span></p>
-					<h1 class="display-xl">The companion app for BlueBuzzah gloves</h1>
-					<p class="body-l prose">BuzzahBuddy lets you control sessions, adjust and customize settings, and track usage, all from your phone. Open-source and always free.</p>
-					<!-- web.md Download pages: official store badges, equal weight, no platform detection -->
-					<div class="button-row" id="download">
-						<a class="store-badge" href="https://testflight.apple.com/join/DMuPNBGA" aria-describedby="early-access-note"><img src="/assets/apple-appstore.png" alt="Download on the App Store" width="512" height="171"></a>
-						<a class="store-badge" href="https://play.google.com/store/apps/details?id=com.rbonestell.buzzahbuddy"><img src="/assets/google-playstore.png" alt="Get it on Google Play" width="478" height="142"></a>
+					<div class="stack hero__lead">
+						<!-- mirrors bundle.js StatusBadge tone="brand" icon="flask-conical" (DS import 1793729877-6a2e) -->
+						<p><span class="bb-badge bb-badge--brand"><svg class="bb-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/assets/icons/flask-conical.svg#icon"/></svg><span>Early Access</span></span></p>
+						<h1 class="display-l">The companion app for BlueBuzzah gloves</h1>
 					</div>
-					<p class="body-s prose" id="early-access-note">On iPhone, BuzzahBuddy is an early test version that installs through Apple's TestFlight app, so expect some rough edges. Features may change before the full release.</p>
+					<img class="hero__art" src="/assets/hero-pair.webp" srcset="/assets/hero-pair-800.webp 800w, /assets/hero-pair.webp 1600w" sizes="(min-width: 900px) 57vw, 100vw" alt="A phone showing BuzzahBuddy's Session screen with a session running, between the electronics for a pair of BlueBuzzah gloves: 2 cases, each with 4 tactors on short leads" width="1600" height="1000" fetchpriority="high">
+					<div class="stack hero__body">
+						<p class="body-l prose">BuzzahBuddy lets you control sessions, adjust and customize settings, and track usage, all from your phone. Open-source and always free.</p>
+						<!-- web.md Download pages: official store badges, equal weight, no platform detection -->
+						<div class="button-row" id="download">
+							<a class="store-badge" href="https://testflight.apple.com/join/DMuPNBGA" aria-describedby="early-access-note"><img src="/assets/apple-appstore.png" alt="Download on the App Store" width="512" height="171"></a>
+							<a class="store-badge" href="https://play.google.com/store/apps/details?id=com.rbonestell.buzzahbuddy"><img src="/assets/google-playstore.png" alt="Get it on Google Play" width="478" height="142"></a>
+						</div>
+						<p class="body-s prose" id="early-access-note">On iPhone, BuzzahBuddy is an early test version that installs through Apple's TestFlight app, so expect some rough edges. Features may change before the full release.</p>
+					</div>
 				</div>
-				<img class="hero__art" src="/assets/hero-pair.webp" srcset="/assets/hero-pair-800.webp 800w, /assets/hero-pair.webp 1600w" sizes="(min-width: 900px) 55vw, 100vw" alt="A phone showing BuzzahBuddy's Session screen with a session running, between the electronics for a pair of BlueBuzzah gloves: 2 cases, each with 4 tactors on short leads" width="1600" height="1000" fetchpriority="high">
 			</div>
 		</section>
 
