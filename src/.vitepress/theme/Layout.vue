@@ -54,7 +54,7 @@ const { frontmatter } = useData()
 					</ul>
 				</nav>
 			</div>
-			<p class="body-s text-muted">BlueBuzzah devices are not FDA approved medical devices and not intended to diagnose, treat, cure, or prevent any disease. The information provided through BlueBuzzah is for general wellness purposes only and not a substitute for professional medical advice, diagnosis, or treatment.</p>
+			<p class="body-s text-muted">BlueBuzzah devices are not FDA cleared or approved medical devices and not intended to diagnose, treat, cure, mitigate, or prevent any disease. The information provided through BlueBuzzah is for general wellness purposes only and not a substitute for professional medical advice, diagnosis, or treatment.</p>
 			<p class="caption text-muted">&copy; 2026 BlueBuzzah Partners</p>
 		</div>
 		<dialog class="settings-dialog" aria-labelledby="settings-title">
