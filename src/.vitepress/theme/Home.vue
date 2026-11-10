@@ -14,7 +14,7 @@
 					</div>
 					<p class="body-s prose" id="early-access-note">On iPhone, BuzzahBuddy is an early test version that installs through Apple's TestFlight app, so expect some rough edges. Features may change before the full release.</p>
 				</div>
-				<img class="hero__mark" src="/assets/bluebuzzah-mark-512.png" alt="" width="200" height="193">
+				<img class="hero__art" src="/assets/hero-pair.webp" srcset="/assets/hero-pair-800.webp 800w, /assets/hero-pair.webp 1600w" sizes="(min-width: 900px) 55vw, 100vw" alt="A phone showing BuzzahBuddy's Session screen with a session running, between the electronics for a pair of BlueBuzzah gloves: 2 cases, each with 4 tactors on short leads" width="1600" height="1000" fetchpriority="high">
 			</div>
 		</section>
 
