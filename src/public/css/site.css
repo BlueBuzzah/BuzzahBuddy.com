@@ -46,8 +46,10 @@ a.bb-btn { box-sizing: border-box; }
 /* Hero on abyss (web.md Home page 1) ----------------------------------- */
 .hero { background: var(--abyss); color: var(--on-abyss); padding-block: var(--space-16); }
 .hero__inner { display: grid; gap: var(--space-8); align-items: center; }
-/* product render in place of the mark (web.md Home page 1): fills its column, stacks under the text below 900px */
-.hero__art { width: 100%; height: auto; }
+/* product render in place of the mark (web.md Home page 1). It follows the headline in the source, so phones show it
+   right under the headline and screen readers meet it in the same order. Its edges are fully transparent, so on
+   phones it runs edge to edge; on tablets it stops at prose-max. */
+.hero__art { display: block; width: calc(100% + 2 * var(--space-4)); max-width: none; height: auto; margin-inline: calc(-1 * var(--space-4)); }
 /* Button outline rule: in light themes the brand fill nearly matches abyss (2.5:1, 1.56:1 in light-hc),
    so it gets an outline in its label colour (components/Button/README.md) */
 .hero .bb-btn--primary { border-color: var(--on-brand); }
@@ -56,9 +58,15 @@ a.bb-btn { box-sizing: border-box; }
 .store-badge img { height: var(--target-lg); width: auto; }
 @media (min-width: 600px) {
   .hero { padding-block: var(--space-24); }
+  .hero__art { width: 100%; max-width: var(--prose-max); margin-inline: auto; }
 }
 @media (min-width: 900px) {
-  .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+  /* two columns: the lead (headline) and body left, the render right and centred beside them. The 1fr rows above and
+     below take any height the render adds, so the text stays vertically centred. */
+  .hero__text { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); grid-template-rows: 1fr auto auto 1fr; column-gap: var(--space-8); }
+  .hero__lead { grid-column: 1; grid-row: 2; }
+  .hero__body { grid-column: 1; grid-row: 3; }
+  .hero__text > .hero__art { grid-column: 2; grid-row: 1 / -1; align-self: center; width: 100%; max-width: none; margin: 0; }
 }
 
 /* Lockup: mark + BuzzahBuddy in Lexend 600, gap space-3 (README Logo) --- */
