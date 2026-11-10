@@ -46,7 +46,7 @@ const { frontmatter } = useData()
 				<nav aria-label="Footer">
 					<ul class="list-reset footer-links">
 						<li><a class="nav-link body-s" href="https://github.com/BlueBuzzah/BuzzahBuddy">GitHub</a></li>
-						<li><a class="nav-link body-s" href="https://github.com/BlueBuzzah/BuzzahBuddy/blob/main/LICENSE">License</a></li>
+						<li><a class="nav-link body-s" href="https://bluebuzzah.com/terms#licenses">Licenses</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com/terms.html">Terms and safety</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com/privacy.html">Privacy policy</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com">BlueBuzzah.com</a></li>
