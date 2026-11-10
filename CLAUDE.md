@@ -9,7 +9,7 @@ Static site for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android
 - `src/.vitepress/theme/guide.ts`: the one page list that drives the nav and the Pager. Add or reorder a page there.
 - `src/index.md`: frontmatter only (`page`, `title`, `description`).
 - `src/guide/*.md`: the guide pages, Markdown only (see Guide pages).
-- `src/.vitepress/config.mts`: the global `<head>`. `theme.js` must stay a blocking script before the stylesheets. Its `transformHead` writes every page's canonical URL, Open Graph and Twitter tags and JSON-LD from the frontmatter, so pages never hand-write them. JSON-LD stays non-medical (no `Medical*` types), and the organization's name is BlueBuzzah Partners.
+- `src/.vitepress/config.mts`: the global `<head>`. `theme.js` must stay a blocking script before the stylesheets. Its `transformHead` writes every page's canonical URL, Open Graph and Twitter tags and JSON-LD from the frontmatter, so pages never hand-write them. JSON-LD stays non-medical (no `Medical*` types), and the organization's name is BlueBuzzah Partners. Every `/css` and `/js` link goes through `v()`, which adds `?v=` and a hash of the file: GitHub Pages lets browsers cache those for 10 minutes, and an unversioned link can pair new HTML with old CSS right after a deploy. Link a new stylesheet or script the same way.
 - `src/public/`: everything the page links, served as-is at the site root (`css/`, `js/`, `assets/`, `favicon.ico`, `site.webmanifest`, `robots.txt`, `CNAME`).
 
 ## Working on it
@@ -26,7 +26,7 @@ npm run preview  # serve the build at http://localhost:4173 (touches dist/404.ht
 - **A new page** needs a `src/<name>.md` with `page`, `title` and `description` (without a description VitePress writes "A VitePress site"), a `<Name>.vue`, and a branch for it in `Layout.vue`. A new guide page needs only a `src/guide/<slug>.md` and an entry in `guide.ts`.
 - **Clean URLs** (`cleanUrls: true`): links never end in `.html` (`/guide/sessions`). The files keep `.html`, so both forms are served.
 - Keep `mpa: true` (no Vue runtime or client router; links and `#` anchors behave natively) and `appearance: false` (otherwise VitePress adds its own dark-mode script that fights `theme.js`).
-- Reference public files by absolute path (`/assets/…`, `/css/…`). A missing `<img src>` or `<use href>` target in a `.vue` template fails the build. `<a href>` targets and the `head` paths in `config.mts` aren't checked, so a typo there builds and deploys.
+- Reference public files by absolute path (`/assets/…`, `/css/…`). A missing `<img src>` or `<use href>` target in a `.vue` template fails the build. `<a href>` targets and the font preloads in `config.mts` aren't checked, so a typo there builds and deploys (a `v()` link to a missing file fails the build).
 - The build deletes VitePress's `404.html` (blank in MPA mode), so GitHub Pages serves its own 404.
 - The home page's share card is `src/public/assets/og-image.png`, a 1200×630 PNG in the same layout as BlueBuzzah.com's, also the fallback for a page with no card of its own. Guide pages' cards live in `src/public/assets/og/`, named from the page path (`guide/sessions.md` → `guide-sessions.png`). If a title or lead changes, remake its card the way BlueBuzzah.com's `CLAUDE.md` describes, and update `og:image:alt` in `config.mts` if the home headline changes.
 
