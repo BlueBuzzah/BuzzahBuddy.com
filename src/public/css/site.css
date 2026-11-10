@@ -1,5 +1,5 @@
 /* BuzzahBuddy.com layout. Every value is a design-system token (css/tokens.css); components come from
-   css/bundle.css. Breakpoints are web.md's: 600px (gutters, hero type) and 900px (hero mark, card grid, menu collapse). */
+   css/bundle.css. Breakpoints are web.md's: 600px (gutters, hero type) and 900px (hero render, card grid, menu collapse). */
 
 html { scroll-behavior: smooth; }
 h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
@@ -46,8 +46,8 @@ a.bb-btn { box-sizing: border-box; }
 /* Hero on abyss (web.md Home page 1) ----------------------------------- */
 .hero { background: var(--abyss); color: var(--on-abyss); padding-block: var(--space-16); }
 .hero__inner { display: grid; gap: var(--space-8); align-items: center; }
-/* the mark only shows beside the text; when it would drop under the buttons it's hidden instead */
-.hero__mark { display: none; width: calc(var(--space-20) * 2.5); height: auto; }
+/* product render in place of the mark (web.md Home page 1): fills its column, stacks under the text below 900px */
+.hero__art { width: 100%; height: auto; }
 /* Button outline rule: in light themes the brand fill nearly matches abyss (2.5:1, 1.56:1 in light-hc),
    so it gets an outline in its label colour (components/Button/README.md) */
 .hero .bb-btn--primary { border-color: var(--on-brand); }
@@ -58,8 +58,7 @@ a.bb-btn { box-sizing: border-box; }
   .hero { padding-block: var(--space-24); }
 }
 @media (min-width: 900px) {
-  .hero__inner { grid-template-columns: minmax(0, 1fr) auto; }
-  .hero__mark { display: block; }
+  .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
 }
 
 /* Lockup: mark + BuzzahBuddy in Lexend 600, gap space-3 (README Logo) --- */
