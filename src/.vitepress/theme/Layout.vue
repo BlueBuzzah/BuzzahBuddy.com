@@ -46,7 +46,7 @@ const { frontmatter } = useData()
 				<nav aria-label="Footer">
 					<ul class="list-reset footer-links">
 						<li><a class="nav-link body-s" href="https://github.com/BlueBuzzah/BuzzahBuddy">GitHub</a></li>
-						<li><a class="nav-link body-s" href="https://github.com/BlueBuzzah/BuzzahBuddy/blob/main/LICENSE">License</a></li>
+						<li><a class="nav-link body-s" href="https://bluebuzzah.com/terms#licenses">Licenses</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com/terms.html">Terms and safety</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com/privacy.html">Privacy policy</a></li>
 						<li><a class="nav-link body-s" href="https://bluebuzzah.com">BlueBuzzah.com</a></li>
@@ -54,7 +54,7 @@ const { frontmatter } = useData()
 					</ul>
 				</nav>
 			</div>
-			<p class="body-s text-muted">BlueBuzzah devices are not FDA approved medical devices and not intended to diagnose, treat, cure, or prevent any disease. The information provided through BlueBuzzah is for general wellness purposes only and not a substitute for professional medical advice, diagnosis, or treatment.</p>
+			<p class="body-s text-muted">BlueBuzzah devices are not FDA cleared or approved medical devices and not intended to diagnose, treat, cure, mitigate, or prevent any disease. The information provided through BlueBuzzah is for general wellness purposes only and not a substitute for professional medical advice, diagnosis, or treatment.</p>
 			<p class="caption text-muted">&copy; 2026 BlueBuzzah Partners</p>
 		</div>
 		<dialog class="settings-dialog" aria-labelledby="settings-title">
