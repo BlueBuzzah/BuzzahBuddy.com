@@ -9,7 +9,7 @@ lead: The History tab shows the sessions this phone recorded. Your saved session
 
 - **Period** sets what the whole page shows: **30 Days**, **90 Days** or **All Time**.
 - **Overview** shows your total time, days used, average day and number of sessions.
-- **Calendar** shows 1 month. Each day's square fills up with the time you used your gloves. A full square is 4 hours, the daily time early studies used. Use **Previous** and **Next** to change the month.
+- **Calendar** shows 1 month. Each day's square fills up with the time you used your gloves. A full square is 4 hours. Use **Previous** and **Next** to change the month.
 - **Days** lists each day's sessions. Tap **Add Note** to write about a day, or **Edit Note** to change it.
 
 The calendar is hidden at very large text sizes. The averages and the day list show the same time.

@@ -28,6 +28,13 @@ The ring in the middle of the screen shows how much time is left. Your phone sta
 
 <Shot src="/guide/img/11-stop-confirmation" alt="The Stop This Session? sheet over the Session tab. An arrow points to the Stop Session button." />
 
+## How to stop
+
+- **The sure way:** switch off both gloves. Each glove's power switch turns it off without the app.
+- **In BuzzahBuddy:** tap **Stop**, then **Stop Session**.
+- **Closing the app doesn't stop the gloves.** If your phone disconnects or the connection drops, a running session keeps going.
+- **The gloves can start by themselves.** If no phone connects within 30 seconds of the gloves pairing, the primary starts a session.
+
 ## When a session ends
 
 BuzzahBuddy saves your session and asks if you want to add a note. Write anything you want to remember, then tap **Save Note**, or tap **Skip**. Sessions under 1 minute aren't saved.
