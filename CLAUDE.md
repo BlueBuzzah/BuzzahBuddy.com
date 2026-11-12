@@ -2,6 +2,10 @@
 
 Static site for BuzzahBuddy, the BlueBuzzah companion app for iPhone and Android. Built with VitePress 1.6.4 in MPA mode with a custom theme: the output is plain static HTML with no framework JavaScript. Pages: `/` and the user guide under `/guide/…`, styled with the design system's `css/tokens.css` and `css/bundle.css` (its `bb-` component classes on plain HTML, no React) plus `css/site.css` for layout and `css/docs.css` (linked on every page, its rules scoped under `.docs`). `js/theme.js` sets `data-theme` before first paint; `js/site.js` adds the mobile-menu close, the footer's Display settings dialog (theme override) and the guide's image lightbox. `.github/workflows/deploy.yml` builds pull requests and deploys `main` to GitHub Pages (source: GitHub Actions). Pages must stay readable with JavaScript off. The app is public on Google Play and in early access on iPhone: the hero's official store badges link to the Google Play listing and the TestFlight build, with a note that the iPhone build is a test version. Swap the iOS link to the App Store listing at full release.
 
+## Not a medical device
+
+BlueBuzzah is a volunteer-driven, open-source DIY project, not a medical or therapeutic device. Nothing written here (page copy, guide pages, metadata, JSON-LD, share cards) may say or imply that it is a medical device, or that it is cleared, approved or authorized by the FDA or any other regulator. Regulatory status appears only in the verbatim legal disclaimer. Code identifiers, firmware commands, protocol fields, serial markers and file names are not copy and stay as they are. Full rule: "Not a medical device" in the workspace `CLAUDE.md` (`../../CLAUDE.md`).
+
 ## Layout
 
 - `src/.vitepress/theme/Layout.vue`: the header, footer and Display settings dialog; picks the page body from the page's `page` frontmatter.
@@ -48,7 +52,7 @@ npm run preview  # serve the build at http://localhost:4173 (touches dist/404.ht
 ## Guide pages (`/guide/…`)
 
 - Markdown in `src/guide/`, frontmatter `page: guide`, `title`, `description`, `lead`, and optionally `shareTitle` (replaces `title` in the `<title>` and share tags when `title` alone says little, as with "Start here"). `Guide.vue` renders the rest, including the Pager from the page's place in `guide.ts`.
-- **Markdown uses only `<Notices />` (the legal notices, verbatim; put it on every therapy page), `<Shot src alt caption>` (blank lines around it) and never raw HTML blocks.**
+- **Markdown uses only `<Notices />` (the legal notices, verbatim; put it on every page about using the gloves), `<Shot src alt caption>` (blank lines around it) and never raw HTML blocks.**
 - Every top-level ordered list renders as numbered steps (numbers restart at 1; `start=` is ignored). Keep a section's steps one list, and use bullets for anything that isn't a step.
 - Pages still waiting for a screenshot carry `<!-- planned-image: /guide/img/NAME | screenshot | Shows: … Arrow: … -->` where the `<Shot>` goes.
 - Screenshots come from BuzzahBuddy's `guide-screenshot` skill. They live in `src/public/guide/img/` as `NAME.webp` (full size, never upscaled) and `NAME-thumb.webp` (640px wide), converted once with `cwebp` from the source PNG. No script is committed. Reference them as `/guide/img/NAME` in `<Shot src>`. `Shot.vue` and `docs.css` size the thumbnail for a portrait iPhone shot (1206×2622), so other shapes need their own frame. The alt text says what each arrow points to. A missing image doesn't fail the build; check the built HTML:
